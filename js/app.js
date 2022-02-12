@@ -13,99 +13,77 @@ const playerOne = document.querySelector('#playerOne')
 const playerTwo = document.querySelector('#playerTwo')
 const container = document.querySelectorAll('#container')
 const squares = [r1c1, r1c2, r1c3, r2c1, r2c2, r2c3, r3c1, r3c2, r3c3]
+const row1 = [r1c1, r1c2, r1c3]
+const row2 = [r2c1, r2c2, r2c3]
+const row3 = [r3c1, r3c2, r3c3]
+let currentPlayer = 1
+let currentSquare = ''
 
+// let player1 = prompt("Player One: Enter your name below. You are X's")
+// let player2 = prompt("Player Two: Enter your name below. You are O's")
+
+
+// handleClick
+// checks current player then either calls addX or addO passing in square id
+// updates current user 
+
+const handleClick = () => {
+    if (currentPlayer === 1) {
+        addX()
+        currentPlayer = 2
+    } else {
+        addO()
+        currentPlayer = 1
+    }
+}
 
 // A user should be able to click on different squares to make a move.
 // Every click will alternate between marking an X and O
 r1c1.addEventListener('click', function () {
-    if (r1c1.textContent === "") {
-        r1c1.textContent = "X"
-    } else if (r1c1.textContent === "X") {
-        r1c1.textContent = "O"
-    } else {
-        r1c1.textContent = ""
-    }
+    currentSquare = r1c1
+    handleClick()
 })
+
 r1c2.addEventListener('click', function () {
-    if (r1c2.textContent === "") {
-        r1c2.textContent = "X"
-    } else if (r1c2.textContent === "X") {
-        r1c2.textContent = "O"
-    } else {
-        r1c2.textContent = ""
-    }
+    currentSquare = r1c2
+    handleClick()
 })
 r1c3.addEventListener('click', function () {
-    if (r1c3.textContent === "") {
-        r1c3.textContent = "X"
-    } else if (r1c3.textContent === "X") {
-        r1c3.textContent = "O"
-    } else {
-        r1c3.textContent = ""
-    }
+    currentSquare = r1c3
+    handleClick()
 })
 r2c1.addEventListener('click', function () {
-    if (r2c1.textContent === "") {
-        r2c1.textContent = "X"
-    } else if (r2c1.textContent === "X") {
-        r2c1.textContent = "O"
-    } else {
-        r2c1.textContent = ""
-    }
+    currentSquare = r2c1
+    handleClick()
 })
 r2c2.addEventListener('click', function () {
-    if (r2c2.textContent === "") {
-        r2c2.textContent = "X"
-    } else if (r2c2.textContent === "X") {
-        r2c2.textContent = "O"
-    } else {
-        r2c2.textContent = ""
-    }
+    currentSquare = r2c2
+    handleClick()
 })
 r2c3.addEventListener('click', function () {
-    if (r2c3.textContent === "") {
-        r2c3.textContent = "X"
-    } else if (r2c3.textContent === "X") {
-        r2c3.textContent = "O"
-    } else {
-        r2c3.textContent = ""
-    }
+    currentSquare = r2c3
+    handleClick()
 })
 
 r3c3.addEventListener('click', function () {
-    if (r3c3.textContent === "") {
-        r3c3.textContent = "X"
-    } else if (r3c3.textContent === "X") {
-        r3c3.textContent = "O"
-    } else {
-        r3c3.textContent = ""
-    }
+    currentSquare = r3c3
+    handleClick()
 })
 r3c2.addEventListener('click', function () {
-    if (r3c2.textContent === "") {
-        r3c2.textContent = "X"
-    } else if (r3c2.textContent === "X") {
-        r3c2.textContent = "O"
-    } else {
-        r3c2.textContent = ""
-    }
+    currentSquare = r3c2
+    handleClick()
 })
 r3c1.addEventListener('click', function () {
-    if (r3c1.textContent === "") {
-        r3c1.textContent = "X"
-    } else if (r3c1.textContent === "X") {
-        r3c1.textContent = "O"
-    } else {
-        r3c1.textContent = ""
-    }
+    currentSquare = r3c1
+    handleClick()
 })
 // Upon marking of an individual cell, use JavaScript to add an X or O to the cell, according to whose turn it is.
 const addX = () => {
-
+    currentSquare.textContent = "X"
 }
 
-const addY = () => {
-
+const addO = () => {
+    currentSquare.textContent = "O"
 }
 // A cell should not be able to be replayed once marked.
 // You should not be able to click remaining empty cells after the game is over.
@@ -121,6 +99,12 @@ reset.addEventListener('click', resetBoard)
 // Display a message to indicate which turn is about to be played.
 // Detect draw conditions (ties/cat's game)
 // Detect winner: Stop game and declare the winner if one player ends up getting three in a row.
+
+// const checkWinX = () => {
+//     if (r1c1 === "X" && r1c2 === "X" && r1c3 === "X") {
+//         console.log("p1 win")
+//     }
+// }
 
 
 
