@@ -9,8 +9,6 @@ const r3c1 = document.querySelector('#r3c1')
 const r3c2 = document.querySelector('#r3c2')
 const r3c3 = document.querySelector('#r3c3')
 const reset = document.querySelector('#reset')
-const playerOne = document.querySelector('#playerOne')
-const playerTwo = document.querySelector('#playerTwo')
 const container = document.querySelectorAll('#container')
 const squares = [r1c1, r1c2, r1c3, r2c1, r2c2, r2c3, r3c1, r3c2, r3c3]
 const row1 = [r1c1, r1c2, r1c3]
@@ -40,42 +38,67 @@ const handleClick = () => {
 // A user should be able to click on different squares to make a move.
 // Every click will alternate between marking an X and O
 r1c1.addEventListener('click', function () {
-    currentSquare = r1c1
-    handleClick()
+    if (!r1c1.textContent) {
+        currentSquare = r1c1
+        handleClick()
+    }
 })
 
 r1c2.addEventListener('click', function () {
-    currentSquare = r1c2
-    handleClick()
+    if (!r1c2.textContent) {
+        currentSquare = r1c2
+        handleClick()
+    }
 })
+
+
 r1c3.addEventListener('click', function () {
-    currentSquare = r1c3
-    handleClick()
+    if (!r1c3.textContent) {
+        currentSquare = r1c3
+        handleClick()
+    }
 })
+
 r2c1.addEventListener('click', function () {
-    currentSquare = r2c1
-    handleClick()
+    if (!r2c1.textContent) {
+        currentSquare = r2c1
+        handleClick()
+    }
 })
+
 r2c2.addEventListener('click', function () {
-    currentSquare = r2c2
-    handleClick()
+    if (!r2c2.textContent) {
+        currentSquare = r2c2
+        handleClick()
+    }
 })
+
 r2c3.addEventListener('click', function () {
-    currentSquare = r2c3
-    handleClick()
+    if (!r2c3.textContent) {
+        currentSquare = r2c3
+        handleClick()
+    }
 })
 
 r3c3.addEventListener('click', function () {
-    currentSquare = r3c3
-    handleClick()
+    if (!r3c3.textContent) {
+        currentSquare = r3c3
+        handleClick()
+    }
 })
+
 r3c2.addEventListener('click', function () {
-    currentSquare = r3c2
-    handleClick()
+    if (!r3c2.textContent) {
+        currentSquare = r3c2
+        handleClick()
+    }
 })
+
 r3c1.addEventListener('click', function () {
-    currentSquare = r3c1
-    handleClick()
+    if (!r3c1.textContent) {
+        currentSquare = r3c1
+        handleClick()
+    }
 })
 // Upon marking of an individual cell, use JavaScript to add an X or O to the cell, according to whose turn it is.
 const addX = () => {
@@ -101,10 +124,11 @@ reset.addEventListener('click', resetBoard)
 // Detect winner: Stop game and declare the winner if one player ends up getting three in a row.
 
 // const checkWinX = () => {
-//     if (r1c1 === "X" && r1c2 === "X" && r1c3 === "X") {
+//     if (r1c1 === 1) {
 //         console.log("p1 win")
 //     }
 // }
+// checkWinX()
 
 
 
