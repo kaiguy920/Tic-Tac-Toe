@@ -15,6 +15,8 @@ const Player2 = document.querySelector('#p2')
 const squares = [r1c1, r1c2, r1c3, r2c1, r2c2, r2c3, r3c1, r3c2, r3c3]
 let currentPlayer = 1
 let currentSquare = ''
+const message = document.querySelector('#message')
+const winner = document.querySelector('#winner')
 
 // handleClick
 // checks current player then either calls addX or addO passing in square id
@@ -22,9 +24,11 @@ let currentSquare = ''
 
 const handleClick = () => {
     if (currentPlayer === 1) {
+        message.innerText = "Player Two's Turn"
         addX()
         currentPlayer = 2
     } else {
+        message.innerText = "Player One's Turn"
         addO()
         currentPlayer = 1
     }
@@ -114,6 +118,11 @@ const resetBoard = () => {
     for (let i = 0; i < squares.length; i++) {
         squares[i].textContent = "";
     }
+    Player1.style.border = ""
+    Player2.style.border = ""
+    winner.innerText = ""
+    message.innerText = "Player One's Turn"
+    currentPlayer = 1
 }
 reset.addEventListener('click', resetBoard)
 
@@ -124,43 +133,74 @@ reset.addEventListener('click', resetBoard)
 const checkWinX = () => {
     if (r1c1.textContent === "X" && r1c2.textContent === "X" && r1c3.textContent === "X") {
         Player1.style.border = '3px solid green'
+        winner.innerText = "Player One Wins!"
     } else if (r2c1.textContent === "X" && r2c2.textContent === "X" && r2c3.textContent === "X") {
         Player1.style.border = '3px solid green'
+        winner.innerText = "Player One Wins!"
     } else if (r3c1.textContent === "X" && r3c2.textContent === "X" && r3c3.textContent === "X") {
         Player1.style.border = '3px solid green'
+        winner.innerText = "Player One Wins!"
     } else if (r1c1.textContent === "X" && r2c1.textContent === "X" && r3c1.textContent === "X") {
         Player1.style.border = '3px solid green'
+        winner.innerText = "Player One Wins!"
     } else if (r1c2.textContent === "X" && r2c2.textContent === "X" && r3c2.textContent === "X") {
         Player1.style.border = '3px solid green'
+        winner.innerText = "Player One Wins!"
     } else if (r1c3.textContent === "X" && r2c3.textContent === "X" && r3c3.textContent === "X") {
         Player1.style.border = '3px solid green'
+        winner.innerText = "Player One Wins!"
     } else if (r1c1.textContent === "X" && r2c2.textContent === "X" && r3c3.textContent === "X") {
         Player1.style.border = '3px solid green'
+        winner.innerText = "Player One Wins!"
     } else if (r3c1.textContent === "X" && r2c2.textContent === "X" && r1c3.textContent === "X") {
         Player1.style.border = '3px solid green'
+        winner.innerText = "Player One Wins!"
+    } else {
+        checkForDraw()
     }
 }
 
 const checkWinO = () => {
     if (r1c1.textContent === "O" && r1c2.textContent === "O" && r1c3.textContent === "O") {
         Player2.style.border = '3px solid green'
+        winner.innerText = "Player Two Wins!"
     } else if (r2c1.textContent === "O" && r2c2.textContent === "O" && r2c3.textContent === "O") {
         Player2.style.border = '3px solid green'
+        winner.innerText = "Player Two Wins!"
     } else if (r3c1.textContent === "O" && r3c2.textContent === "O" && r3c3.textContent === "O") {
         Player2.style.border = '3px solid green'
+        winner.innerText = "Player Two Wins!"
     } else if (r1c1.textContent === "O" && r2c1.textContent === "O" && r3c1.textContent === "O") {
         Player2.style.border = '3px solid green'
+        winner.innerText = "Player Two Wins!"
     } else if (r1c2.textContent === "O" && r2c2.textContent === "O" && r3c2.textContent === "O") {
         Player2.style.border = '3px solid green'
+        winner.innerText = "Player Two Wins!"
     } else if (r1c3.textContent === "O" && r2c3.textContent === "O" && r3c3.textContent === "O") {
         Player2.style.border = '3px solid green'
+        winner.innerText = "Player Two Wins!"
     } else if (r1c1.textContent === "O" && r2c2.textContent === "O" && r3c3.textContent === "O") {
         Player2.style.border = '3px solid green'
+        winner.innerText = "Player Two Wins!"
     } else if (r3c1.textContent === "O" && r2c2.textContent === "O" && r1c3.textContent === "O") {
         Player2.style.border = '3px solid green'
+        winner.innerText = "Player Two Wins!"
+    } else {
+        checkForDraw()
     }
 }
 
+const checkForDraw = () => {
+    let draw = true
+    for (let i = 0; i < squares.length; i++) {
+        if (!squares[i].textContent) {
+            draw = false
+        }
+    }
+    if (draw) {
+        winner.innerText = "It's a draw"
+    }
+}
 
 // style added
 reset.addEventListener('mouseover', function () {
