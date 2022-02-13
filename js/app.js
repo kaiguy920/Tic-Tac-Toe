@@ -103,8 +103,8 @@ r3c1.addEventListener('click', function () {
 // Upon marking of an individual cell, use JavaScript to add an X or O to the cell, according to whose turn it is.
 const addX = () => {
     currentSquare.textContent = "X"
+    checkWinX()
 }
-
 const addO = () => {
     currentSquare.textContent = "O"
 }
@@ -123,14 +123,32 @@ reset.addEventListener('click', resetBoard)
 // Detect draw conditions (ties/cat's game)
 // Detect winner: Stop game and declare the winner if one player ends up getting three in a row.
 
-// const checkWinX = () => {
-//     if (r1c1 === 1) {
-//         console.log("p1 win")
-//     }
-// }
-// checkWinX()
+const checkWinX = () => {
+    if (r1c1.textContent === "X" && r1c2.textContent === "X" && r1c3.textContent === "X") {
+        console.log('x wins')
+    } else if (r2c1.textContent === "X" && r2c2.textContent === "X" && r2c3.textContent === "X") {
+        console.log('x wins')
+    } else if (r3c1.textContent === "X" && r3c2.textContent === "X" && r3c3.textContent === "X") {
+        console.log('x wins')
+    } else if (r1c1.textContent === "X" && r2c1.textContent === "X" && r3c1.textContent === "X") {
+        console.log('x wins')
+    } else if (r1c2.textContent === "X" && r2c2.textContent === "X" && r3c2.textContent === "X") {
+        console.log('x wins')
+    } else if (r1c3.textContent === "X" && r2c3.textContent === "X" && r3c3.textContent === "X") {
+        console.log('x wins')
+    } else if (r1c1.textContent === "X" && r2c2.textContent === "X" && r3c3.textContent === "X") {
+        console.log('x wins')
+    } else if (r3c1.textContent === "X" && r2c2.textContent === "X" && r1c3.textContent === "X") {
+        console.log('x wins')
+    }
+
+}
 
 
+
+// declare winner
+// const xWins = () =>
+//     console.log('x wins')
 
 // style added
 reset.addEventListener('mouseover', function () {
