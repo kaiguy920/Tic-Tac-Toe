@@ -10,16 +10,11 @@ const r3c2 = document.querySelector('#r3c2')
 const r3c3 = document.querySelector('#r3c3')
 const reset = document.querySelector('#reset')
 const container = document.querySelectorAll('#container')
+const Player1 = document.querySelector('#p1')
+const Player2 = document.querySelector('#p2')
 const squares = [r1c1, r1c2, r1c3, r2c1, r2c2, r2c3, r3c1, r3c2, r3c3]
-const row1 = [r1c1, r1c2, r1c3]
-const row2 = [r2c1, r2c2, r2c3]
-const row3 = [r3c1, r3c2, r3c3]
 let currentPlayer = 1
 let currentSquare = ''
-
-// let player1 = prompt("Player One: Enter your name below. You are X's")
-// let player2 = prompt("Player Two: Enter your name below. You are O's")
-
 
 // handleClick
 // checks current player then either calls addX or addO passing in square id
@@ -104,9 +99,12 @@ r3c1.addEventListener('click', function () {
 const addX = () => {
     currentSquare.textContent = "X"
     checkWinX()
+    checkWinO()
 }
 const addO = () => {
     currentSquare.textContent = "O"
+    checkWinX()
+    checkWinO()
 }
 // A cell should not be able to be replayed once marked.
 // You should not be able to click remaining empty cells after the game is over.
@@ -125,30 +123,44 @@ reset.addEventListener('click', resetBoard)
 
 const checkWinX = () => {
     if (r1c1.textContent === "X" && r1c2.textContent === "X" && r1c3.textContent === "X") {
-        console.log('x wins')
+        Player1.style.border = '3px solid green'
     } else if (r2c1.textContent === "X" && r2c2.textContent === "X" && r2c3.textContent === "X") {
-        console.log('x wins')
+        Player1.style.border = '3px solid green'
     } else if (r3c1.textContent === "X" && r3c2.textContent === "X" && r3c3.textContent === "X") {
-        console.log('x wins')
+        Player1.style.border = '3px solid green'
     } else if (r1c1.textContent === "X" && r2c1.textContent === "X" && r3c1.textContent === "X") {
-        console.log('x wins')
+        Player1.style.border = '3px solid green'
     } else if (r1c2.textContent === "X" && r2c2.textContent === "X" && r3c2.textContent === "X") {
-        console.log('x wins')
+        Player1.style.border = '3px solid green'
     } else if (r1c3.textContent === "X" && r2c3.textContent === "X" && r3c3.textContent === "X") {
-        console.log('x wins')
+        Player1.style.border = '3px solid green'
     } else if (r1c1.textContent === "X" && r2c2.textContent === "X" && r3c3.textContent === "X") {
-        console.log('x wins')
+        Player1.style.border = '3px solid green'
     } else if (r3c1.textContent === "X" && r2c2.textContent === "X" && r1c3.textContent === "X") {
-        console.log('x wins')
+        Player1.style.border = '3px solid green'
     }
-
 }
 
+const checkWinO = () => {
+    if (r1c1.textContent === "O" && r1c2.textContent === "O" && r1c3.textContent === "O") {
+        Player2.style.border = '3px solid green'
+    } else if (r2c1.textContent === "O" && r2c2.textContent === "O" && r2c3.textContent === "O") {
+        Player2.style.border = '3px solid green'
+    } else if (r3c1.textContent === "O" && r3c2.textContent === "O" && r3c3.textContent === "O") {
+        Player2.style.border = '3px solid green'
+    } else if (r1c1.textContent === "O" && r2c1.textContent === "O" && r3c1.textContent === "O") {
+        Player2.style.border = '3px solid green'
+    } else if (r1c2.textContent === "O" && r2c2.textContent === "O" && r3c2.textContent === "O") {
+        Player2.style.border = '3px solid green'
+    } else if (r1c3.textContent === "O" && r2c3.textContent === "O" && r3c3.textContent === "O") {
+        Player2.style.border = '3px solid green'
+    } else if (r1c1.textContent === "O" && r2c2.textContent === "O" && r3c3.textContent === "O") {
+        Player2.style.border = '3px solid green'
+    } else if (r3c1.textContent === "O" && r2c2.textContent === "O" && r1c3.textContent === "O") {
+        Player2.style.border = '3px solid green'
+    }
+}
 
-
-// declare winner
-// const xWins = () =>
-//     console.log('x wins')
 
 // style added
 reset.addEventListener('mouseover', function () {
