@@ -6,7 +6,7 @@ h1 {
     display: flex;
     justify-content: center;
     font-family: 'Permanent Marker', cursive;
-    font-size: 50px;
+    font-size: 60px;
 }
 #r1c1 {
     border-right: 1px solid black;
@@ -128,6 +128,7 @@ h1 {
 }
 
 #ttt {
+    position: relative;
     width: 500px;
     align-items: center;
     margin: auto;
@@ -152,11 +153,31 @@ h1 {
     justify-content: center;
     font-family: 'Permanent Marker', cursive;
     color: white;
-    padding: 10px;
+    padding: 10px 10px;
     font-size: 30px;
 }
 
 h3 {
-    margin: 30px;
+    margin: 10px;
 }
 
+#winner {
+   position: absolute;
+   top: 30%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+    font-family: 'Permanent Marker', cursive;
+    color: green;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 40px;
+    padding: 50px 0;
+}
+
+#message {
+    display: flex;
+    justify-content: center;
+    font-family: 'Permanent Marker', cursive;
+    color: blue;
+    font-size: 30px;
+    margin: 0;
+}
